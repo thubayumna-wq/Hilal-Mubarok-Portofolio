@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Muhamad Hilal Mubarok | Graphic Designer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#0f172a;
+--card:rgba(30,41,59,.65);
+
+--primary:#8b5cf6;
+--secondary:#6366f1;
+
+--text:#fff;
+--text-soft:#cbd5e1;
+
+--border:rgba(255,255,255,.08);
+}
+
+body{
+font-family:'Plus Jakarta Sans',sans-serif;
+
+background:
+radial-gradient(circle at top left,#1e1b4b 0%,transparent 30%),
+radial-gradient(circle at bottom right,#312e81 0%,transparent 30%),
+var(--bg);
+
+color:white;
+
+overflow-x:hidden;
+}
+
+/* SCROLL */
+
+.scroll-progress{
+position:fixed;
+top:0;
+left:0;
+
+height:4px;
+width:0;
+
+background:linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
+
+z-index:9999;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+
+top:18px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:92%;
+max-width:1150px;
+
+z-index:999;
+}
+
+nav{
+background:rgba(15,23,42,.8);
+
+backdrop-filter:blur(15px);
+
+padding:15px 24px;
+
+border-radius:22px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border:1px solid var(--border);
+}
+
+.brand-wrapper{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.profile-img{
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+object-fit:cover;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+
+color:var(--text-soft);
+}
+
+.nav-toggle{
+display:none;
+
+background:none;
+border:none;
+
+color:white;
+
+font-size:28px;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:clamp(2.5rem,6vw,5rem);
+}
+
+.hero p{
+margin:15px 0;
+
+color:var(--text-soft);
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+
+padding:15px 25px;
+
+border-radius:16px;
+
+text-decoration:none;
+
+margin:10px;
+}
+
+.btn-primary{
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+color:white;
+}
+
+.btn-secondary{
+border:1px solid var(--border);
+
+color:white;
+}
+
+/* SECTION */
+
+section{
+padding:100px 20px;
+}
+
+.section-title{
+text-align:center;
+
+margin-bottom:60px;
+}
+
+.section-title p{
+color:var(--text-soft);
+}
+
+/* ABOUT */
+
+.about-content{
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+1fr 350px;
+
+gap:50px;
+}
+
+.about-text p{
+line-height:1.8;
+
+margin:15px 0;
+
+color:var(--text-soft);
+}
+
+.about-image{
+height:380px;
+
+overflow:hidden;
+
+border-radius:30px;
+
+animation:float 6s ease infinite;
+}
+
+.about-image img{
+width:100%;
+height:100%;
+
+object-fit:cover;
+}
+
+.about-info{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:20px;
+
+margin-top:30px;
+}
+
+.info-card{
+padding:20px;
+
+background:var(--card);
+
+border-radius:22px;
+
+border:1px solid var(--border);
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+max-width:1200px;
+
+margin:auto;
+}
+
+.skill-card{
+padding:25px;
+
+background:var(--card);
+
+border-radius:24px;
+
+border:1px solid var(--border);
+
+animation:skillFloat 4s ease infinite;
+}
+
+.skill-card:nth-child(2){
+animation-delay:.5s;
+}
+
+.skill-card:nth-child(3){
+animation-delay:1s;
+}
+
+.skill-card:nth-child(4){
+animation-delay:1.5s;
+}
+
+.skill-icon{
+height:240px;
+
+overflow:hidden;
+
+border-radius:18px;
+
+margin-bottom:20px;
+}
+
+.skill-icon img{
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:.4s;
+}
+
+.skill-card:hover img{
+transform:scale(1.08);
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+max-width:1100px;
+
+margin:auto;
+}
+
+.portfolio-item{
+overflow:hidden;
+
+background:var(--card);
+
+border-radius:24px;
+
+border:1px solid var(--border);
+}
+
+.portfolio-image{
+height:220px;
+
+overflow:hidden;
+}
+
+.portfolio-image img{
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:.5s;
+}
+
+.portfolio-item:hover img{
+transform:scale(1.08);
+}
+
+.portfolio-info{
+padding:20px;
+}
+
+.portfolio-tag{
+display:inline-block;
+
+padding:8px 14px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:30px;
+}
+
+/* CONTACT */
+
+.contact-links{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+}
+
+.contact-link{
+padding:25px;
+
+background:var(--card);
+
+border-radius:22px;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+gap:10px;
+
+text-decoration:none;
+
+color:white;
+}
+
+.contact-link img{
+width:28px;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+
+text-align:center;
+
+color:var(--text-soft);
+}
+
+/* ANIMATION */
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-18px);
+}
+
+}
+
+@keyframes skillFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+@media(max-width:900px){
+
+.about-content{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.nav-toggle{
+display:block;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scroll-progress"></div>
+
+<header>
+<nav>
+
+<div class="brand-wrapper">
+
+<img src="https://i.ibb.co.com/gbFTSvLD/Whats-App-Image-2026-04-23-at-22-10-56.jpg" class="profile-img">
+
+<div>
+MUHAMAD HILAL MUBAROK
+</div>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Beranda</a></li>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#skills">Keahlian</a></li>
+<li><a href="#portfolio">Portofolio</a></li>
+<li><a href="#contact">Kontak</a></li>
+
+</ul>
+
+<button class="nav-toggle">☰</button>
+
+</nav>
+</header>
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>Muhamad Hilal</h1>
+
+<p>
+Graphic Designer • Illustrator • Creative Enthusiast
+</p>
+
+<a href="#portfolio" class="btn btn-primary">
+Lihat Karya
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+Hubungi Saya
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="section-title">
+<h2>Tentang Saya</h2>
+<p>Desainer visual modern dan kreatif</p>
+</div>
+
+<div class="about-content">
+
+<div class="about-text">
+
+<h2>Kreator Visual</h2>
+
+<p>Saya desainer grafis dan ilustrator.</p>
+
+<div class="about-info">
+
+<div class="info-card">📚 MA Assanusiyah</div>
+<div class="info-card">💼 PT Buana Kaos</div>
+<div class="info-card">🎨 Menggambar</div>
+<div class="info-card">✨ Desain & Ilustrasi</div>
+
+</div>
+
+</div>
+
+<div class="about-image">
+
+<img src="https://i.ibb.co.com/SDNPCNty/IMG-20260517-WA0065.jpg">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="section-title">
+<h2>Keahlian</h2>
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+<div class="skill-icon">
+<img src="https://i.ibb.co.com/4RfYs1yJ/IMG-20260517-WA0001.jpg">
+</div>
+<h3>Sketsa</h3>
+</div>
+
+<div class="skill-card">
+<div class="skill-icon">
+<img src="https://i.ibb.co.com/MD4Cqt1v/IMG-20260517-WA0003.jpg">
+</div>
+<h3>Figma</h3>
+</div>
+
+<div class="skill-card">
+<div class="skill-icon">
+<img src="https://i.ibb.co.com/qFNQsQhN/IMG-20260517-WA0002.jpg">
+</div>
+<h3>Corel Draw</h3>
+</div>
+
+<div class="skill-card">
+<div class="skill-icon">
+<img src="https://i.ibb.co.com/hxggqMqv/WA-1778994786330.jpg">
+</div>
+<h3>Mural</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+<div class="section-title">
+<h2>Portofolio</h2>
+</div>
+
+<div class="portfolio-grid">
+
+<div class="portfolio-item">
+<div class="portfolio-image">
+<img src="https://i.ibb.co.com/DHKWfcZn/IMG-20251106-175806.jpg">
+</div>
+<div class="portfolio-info">
+<h3>Sketsa Potret</h3>
+<span class="portfolio-tag">Sketsa</span>
+</div>
+</div>
+
+<div class="portfolio-item">
+<div class="portfolio-image">
+<img src="https://i.ibb.co.com/t9V4ZBR/Screenshot-2025-11-19-19-43-49-963-com-arabyfree-zaaaaakh-edit.jpg">
+</div>
+<div class="portfolio-info">
+<h3>Kaligrafi</h3>
+</div>
+</div>
+
+<div class="portfolio-item">
+<div class="portfolio-image">
+<img src="https://i.ibb.co.com/gLxnCkBh/Screenshot-2026-05-17-115737.png">
+</div>
+<div class="portfolio-info">
+<h3>UI Design</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-title">
+<h2>Hubungi Saya</h2>
+</div>
+
+<div class="contact-links">
+
+<a href="#" class="contact-link">
+WhatsApp
+</a>
+
+<a href="#" class="contact-link">
+Instagram
+</a>
+
+<a href="#" class="contact-link">
+Email
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Muhamad Hilal
+</footer>
+
+</body>
+</html>
